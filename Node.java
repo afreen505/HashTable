@@ -39,7 +39,7 @@ public class Node<K, V> {
     public String toString() {
         StringBuilder nodeString = new StringBuilder();
         nodeString.append("Node{" + "K=").append(key).append(" V=").append(value).append("}");
-        if(next != null)
+        if (next != null)
             nodeString.append("->").append(next);
         return nodeString.toString();
     }

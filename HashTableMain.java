@@ -1,26 +1,34 @@
 package hashtable;
 
 public class HashTableMain {
-    public static void main(String[] args) {
-        HashTable<String, Integer> HashTable = new HashTable();
-        String message = "To be or not to be";
 
+    public static void main(String[] args) {
+        HashTable<String, Integer> hashImpl = new HashTable();
+        String message = "Paranoids are not paranoid because they are paranoid but " +
+                "because they keep putting themselves deliberately into paranoid avoidable situations";
+
+        //Split the words when a white space comes up.
         //Convert all the words in lowercase
         String[] messageArray = message.toLowerCase().split(" ");
 
         for (String word : messageArray) {
-            //Search for the word in the linked list
-            Integer value = HashTable.get(word);
+            //Search for the word in the hashtable
+            Integer value = hashImpl.get(word);
             //If not found, frequency of the word StayWith 1
             if (value == null)
                 value = 1;
             else
                 //If found, frequency of the word increases by 1
                 value = value + 1;
-            HashTable.add(word, value);
+            hashImpl.add(word, value);
+            System.out.println("Value = " + value);
         }
-        System.out.println(HashTable);
+        System.out.println(hashImpl);
+
+        //Remove "avoidable" from the hashtable
+        hashImpl.remove("avoidable");
+
+        //Display the hashtable
+        System.out.println(hashImpl);
     }
 }
-
-
